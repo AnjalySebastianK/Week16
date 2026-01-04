@@ -1,0 +1,48 @@
+Jan 10 09:55:01 server sshd[1201]: Failed password for invalid user admin from 203.0.113.45 port 51001 ssh2
+Jan 10 09:55:04 server sshd[1201]: Failed password for invalid user admin from 203.0.113.45 port 51002 ssh2
+Jan 10 09:55:07 server sshd[1201]: Failed password for invalid user root from 203.0.113.45 port 51003 ssh2
+Jan 10 09:55:10 server sshd[1201]: Failed password for invalid user test from 203.0.113.45 port 51004 ssh2
+Jan 10 09:55:14 server sshd[1201]: Failed password for invalid user guest from 203.0.113.45 port 51005 ssh2
+Jan 10 09:55:18 server sshd[1201]: Failed password for invalid user admin from 203.0.113.45 port 51006 ssh2
+Jan 10 09:55:22 server sshd[1201]: Failed password for invalid user root from 203.0.113.45 port 51007 ssh2
+Jan 10 09:55:26 server sshd[1201]: Failed password for invalid user admin from 203.0.113.45 port 51008 ssh2
+
+Jan 10 09:56:01 server sshd[1202]: Failed password for john from 198.51.100.23 port 52001 ssh2
+Jan 10 09:56:04 server sshd[1202]: Failed password for john from 198.51.100.23 port 52002 ssh2
+Jan 10 09:56:07 server sshd[1202]: Failed password for john from 198.51.100.23 port 52003 ssh2
+Jan 10 09:56:10 server sshd[1202]: Failed password for john from 198.51.100.23 port 52004 ssh2
+Jan 10 09:56:14 server sshd[1202]: Failed password for alice from 198.51.100.23 port 52005 ssh2
+Jan 10 09:56:18 server sshd[1202]: Failed password for bob from 198.51.100.23 port 52006 ssh2
+
+Jan 10 09:57:01 server sshd[1203]: Accepted password for alice from 192.168.1.15 port 40001 ssh2
+Jan 10 09:57:15 server sshd[1203]: Accepted password for bob from 192.168.1.15 port 40002 ssh2
+
+Jan 10 09:58:01 server nginx: 203.0.113.45 - - "GET /admin HTTP/1.1" 401
+Jan 10 09:58:04 server nginx: 203.0.113.45 - - "GET /login HTTP/1.1" 401
+Jan 10 09:58:07 server nginx: 203.0.113.45 - - "POST /login HTTP/1.1" 401
+Jan 10 09:58:10 server nginx: 203.0.113.45 - - "GET /phpmyadmin HTTP/1.1" 404
+Jan 10 09:58:14 server nginx: 203.0.113.45 - - "GET /.env HTTP/1.1" 404
+
+Jan 10 09:59:01 server nginx: 198.51.100.99 - - "GET /wp-admin HTTP/1.1" 401
+Jan 10 09:59:04 server nginx: 198.51.100.99 - - "GET /config HTTP/1.1" 403
+Jan 10 09:59:07 server nginx: 198.51.100.99 - - "GET /backup HTTP/1.1" 404
+
+Jan 10 10:00:01 server kernel: IN=eth0 SRC=198.51.100.99 DST=192.168.1.10 PROTO=TCP DPT=21
+Jan 10 10:00:02 server kernel: IN=eth0 SRC=198.51.100.99 DST=192.168.1.10 PROTO=TCP DPT=22
+Jan 10 10:00:03 server kernel: IN=eth0 SRC=198.51.100.99 DST=192.168.1.10 PROTO=TCP DPT=23
+Jan 10 10:00:04 server kernel: IN=eth0 SRC=198.51.100.99 DST=192.168.1.10 PROTO=TCP DPT=25
+Jan 10 10:00:05 server kernel: IN=eth0 SRC=198.51.100.99 DST=192.168.1.10 PROTO=TCP DPT=80
+Jan 10 10:00:06 server kernel: IN=eth0 SRC=198.51.100.99 DST=192.168.1.10 PROTO=TCP DPT=443
+Jan 10 10:00:07 server kernel: IN=eth0 SRC=198.51.100.99 DST=192.168.1.10 PROTO=TCP DPT=3306
+
+Jan 10 10:01:01 server kernel: IN=eth0 SRC=203.0.113.77 DST=192.168.1.10 PROTO=TCP DPT=22
+Jan 10 10:01:02 server kernel: IN=eth0 SRC=203.0.113.77 DST=192.168.1.10 PROTO=TCP DPT=2222
+Jan 10 10:01:03 server kernel: IN=eth0 SRC=203.0.113.77 DST=192.168.1.10 PROTO=TCP DPT=8080
+
+Jan 10 10:02:30 server sudo[1401]: john : user NOT in sudoers ; COMMAND=/bin/cat /etc/shadow
+Jan 10 10:02:45 server kernel: audit: apparmor="DENIED" operation="open" name="/etc/shadow" pid=3001
+
+Jan 10 10:03:01 server sshd[1250]: Failed password for invalid user admin from 203.0.113.77 port 53001 ssh2
+Jan 10 10:03:04 server sshd[1250]: Failed password for invalid user admin from 203.0.113.77 port 53002 ssh2
+Jan 10 10:03:07 server sshd[1250]: Failed password for invalid user admin from 203.0.113.77 port 53003 ssh2
+Jan 10 10:03:10 server sshd[1250]: Failed password for invalid user admin from 203.0.113.77 port 53004 ssh2
