@@ -1,24 +1,37 @@
 import socket
+import time
 
-# Create TCP socket
-client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# Simple XOR encryption
+def xor_encrypt_decrypt(data, key=5):
+    return ''.join(chr(ord(c) ^ key) for c in data)
 
-HOST = '127.0.0.1'
-PORT = 5000
+def main():
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client_socket.connect(("10.0.0.169", 9999))
 
-# Connect to server
-client_socket.connect((HOST, PORT))
-print("[CLIENT] Connected to server")
+    print("[CLIENT] Connected to server. Type 'help' for commands.")
+    
+    while True:
+        message = input("[CLIENT → SERVER] ")
 
-# Send message to server
-message = "Hello Server!"
-client_socket.send(message.encode())
-print(f"[CLIENT] Sent: {message}")
+        # Input validation
+        if not message.strip():
+            print("[CLIENT] Empty message blocked.")
+            continue
 
-# Receive response from server
-response = client_socket.recv(1024).decode()
-print(f"[CLIENT] Received: {response}")
+        encrypted_message = xor_encrypt_decrypt(message)
+        client_socket.send(encrypted_message.encode())
 
-# Close connection
-client_socket.close()
-print("[CLIENT] Connection closed")
+        if message.lower() == "exit":
+            break
+
+        encrypted_reply = client_socket.recv(4096).decode()
+        reply = xor_encrypt_decrypt(encrypted_reply)
+
+        print(f"[SERVER → CLIENT] {reply}")
+
+    client_socket.close()
+    print("[CLIENT] Disconnected.")
+
+if __name__ == "__main__":
+    main()
